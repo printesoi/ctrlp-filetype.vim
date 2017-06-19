@@ -26,7 +26,7 @@ call add(g:ctrlp_ext_vars, {
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
 
 function! ctrlp#filetype#init()
-  let s:filetypes = split(glob($VIMRUNTIME . '/syntax/*.vim'), "\n")
+  let s:filetypes = split(globpath(&rtp, 'syntax/*.vim'), "\n")
   return map(s:filetypes, 'substitute(fnamemodify(v:val, ":t"), ".vim", "", "")')
 endfunction
 
